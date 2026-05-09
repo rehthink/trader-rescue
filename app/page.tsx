@@ -62,9 +62,22 @@ const STOCKS = {
   }).format(n);
 };*/
 
+// const fmt = (n: any, dec: number = 2): string => {
+//   const num = typeof n === 'string' ? parseFloat(n) : n;
+//   if (num == null || isNaN(num)) return "—";
+//   return new Intl.NumberFormat("en-IN", {
+//     style: "decimal",
+//     minimumFractionDigits: dec,
+//     maximumFractionDigits: dec,
+//   }).format(num);
+// };
+
 const fmt = (n: any, dec: number = 2): string => {
+  // Convert to number if it's a string, otherwise use n
   const num = typeof n === 'string' ? parseFloat(n) : n;
+  
   if (num == null || isNaN(num)) return "—";
+  
   return new Intl.NumberFormat("en-IN", {
     style: "decimal",
     minimumFractionDigits: dec,
