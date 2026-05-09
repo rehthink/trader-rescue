@@ -54,12 +54,22 @@ const STOCKS = {
   SUNPHARMA: { name: "Sun Pharma", price: 1847.20, chg: 0.63 },
 };
 
-const fmt = (n: number | string | null, dec: number = 2) => {
+/*const fmt = (n: number | string | null, dec: number = 2) => {
   if (n == null || isNaN(n)) return "—";
   return new Intl.NumberFormat("en-IN", {
     minimumFractionDigits: dec,
     maximumFractionDigits: dec,
   }).format(n);
+};*/
+
+const fmt = (n: any, dec: number = 2): string => {
+  const num = typeof n === 'string' ? parseFloat(n) : n;
+  if (num == null || isNaN(num)) return "—";
+  return new Intl.NumberFormat("en-IN", {
+    style: "decimal",
+    minimumFractionDigits: dec,
+    maximumFractionDigits: dec,
+  }).format(num);
 };
 
 const fmtCur = (n) => {
@@ -207,7 +217,7 @@ export default function TradeRescue() {
       }
     };
 
-  const onTickerChange = (val) => {
+  const onTickerChange = (val : String) => {
     setTickerInput(val);
     if (val.length >= 1) {
       const f = Object.entries(STOCKS).filter(
