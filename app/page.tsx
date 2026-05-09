@@ -54,7 +54,7 @@ const STOCKS = {
   SUNPHARMA: { name: "Sun Pharma", price: 1847.20, chg: 0.63 },
 };
 
-const fmt = (n, dec = 2) => {
+const fmt = (n: number | string | null, dec: number = 2) => {
   if (n == null || isNaN(n)) return "—";
   return new Intl.NumberFormat("en-IN", {
     minimumFractionDigits: dec,
