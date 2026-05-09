@@ -85,14 +85,26 @@ const fmt = (n: any, dec: number = 2): string => {
   }).format(num);
 };
 
-const fmtCur = (n) => {
-  if (n == null || isNaN(n)) return "—";
-  const abs = Math.abs(n);
-  const sign = n < 0 ? "-" : "";
-  if (abs >= 10000000) return `${sign}₹${(abs / 10000000).toFixed(2)}Cr`;
-  if (abs >= 100000) return `${sign}₹${(abs / 100000).toFixed(2)}L`;
-  if (abs >= 1000) return `${sign}₹${(abs / 1000).toFixed(2)}K`;
-  return `${sign}₹${abs.toFixed(2)}`;
+// const fmtCur = (n) => {
+//   if (n == null || isNaN(n)) return "—";
+//   const abs = Math.abs(n);
+//   const sign = n < 0 ? "-" : "";
+//   if (abs >= 10000000) return `${sign}₹${(abs / 10000000).toFixed(2)}Cr`;
+//   if (abs >= 100000) return `${sign}₹${(abs / 100000).toFixed(2)}L`;
+//   if (abs >= 1000) return `${sign}₹${(abs / 1000).toFixed(2)}K`;
+//   return `${sign}₹${abs.toFixed(2)}`;
+// };
+
+const fmtCur = (n: any): string => {
+  const num = typeof n === 'string' ? parseFloat(n) : n;
+  if (num == null || isNaN(num)) return "—";
+  
+  const abs = Math.abs(num);
+  const sign = num < 0 ? "-" : "";
+  
+  if (abs >= 10000000) return sign + "₹" + (abs / 10000000).toFixed(2) + " Cr";
+  if (abs >= 100000) return sign + "₹" + (abs / 100000).toFixed(2) + " L";
+  return sign + "₹" + abs.toLocaleString("en-IN");
 };
 
 // ─── Finance Engine ───────────────────────────────────────────────────────────
