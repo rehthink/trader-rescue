@@ -37,24 +37,24 @@ const C = {
 
 /* ─── Mock Data ──────────────────────────────────────────────────────────── */
 const STOCKS: Record<string, any> = {
-  AAPL:       { name: "Apple Inc.",           price: 189.43,  chg: -0.85 },
-  MSFT:       { name: "Microsoft Corp.",      price: 421.72,  chg:  1.12 },
-  TSLA:       { name: "Tesla Inc.",           price: 178.21,  chg: -3.42 },
-  NVDA:       { name: "NVIDIA Corp.",         price: 875.35,  chg:  2.67 },
-  GOOGL:      { name: "Alphabet Inc.",        price: 172.86,  chg:  0.44 },
-  AMZN:       { name: "Amazon.com",           price: 185.60,  chg: -0.22 },
-  META:       { name: "Meta Platforms",       price: 538.92,  chg:  1.85 },
-  NFLX:       { name: "Netflix Inc.",         price: 668.44,  chg:  3.11 },
-  RELIANCE:   { name: "Reliance Industries",  price: 2847.50, chg: -0.65 },
-  TCS:        { name: "Tata Consultancy",     price: 3421.80, chg:  0.92 },
-  INFY:       { name: "Infosys Ltd.",         price: 1562.40, chg: -1.23 },
-  HDFCBANK:   { name: "HDFC Bank",            price: 1687.25, chg:  0.38 },
-  WIPRO:      { name: "Wipro Ltd.",           price:  478.60, chg: -0.74 },
-  BAJFINANCE: { name: "Bajaj Finance",        price: 6823.40, chg:  1.56 },
-  TATAMOTORS: { name: "Tata Motors",          price:  972.35, chg: -2.18 },
-  ICICIBANK:  { name: "ICICI Bank",           price: 1234.60, chg:  0.82 },
-  ADANIPORTS: { name: "Adani Ports",          price: 1387.40, chg: -1.04 },
-  SUNPHARMA:  { name: "Sun Pharma",           price: 1847.20, chg:  0.63 },
+  // AAPL:       { name: "Apple Inc.",           price: 189.43,  chg: -0.85 },
+  // MSFT:       { name: "Microsoft Corp.",      price: 421.72,  chg:  1.12 },
+  // TSLA:       { name: "Tesla Inc.",           price: 178.21,  chg: -3.42 },
+  // NVDA:       { name: "NVIDIA Corp.",         price: 875.35,  chg:  2.67 },
+  // GOOGL:      { name: "Alphabet Inc.",        price: 172.86,  chg:  0.44 },
+  // AMZN:       { name: "Amazon.com",           price: 185.60,  chg: -0.22 },
+  // META:       { name: "Meta Platforms",       price: 538.92,  chg:  1.85 },
+  // NFLX:       { name: "Netflix Inc.",         price: 668.44,  chg:  3.11 },
+  // RELIANCE:   { name: "Reliance Industries",  price: 2847.50, chg: -0.65 },
+  // TCS:        { name: "Tata Consultancy",     price: 3421.80, chg:  0.92 },
+  // INFY:       { name: "Infosys Ltd.",         price: 1562.40, chg: -1.23 },
+  // HDFCBANK:   { name: "HDFC Bank",            price: 1687.25, chg:  0.38 },
+  // WIPRO:      { name: "Wipro Ltd.",           price:  478.60, chg: -0.74 },
+  // BAJFINANCE: { name: "Bajaj Finance",        price: 6823.40, chg:  1.56 },
+  // TATAMOTORS: { name: "Tata Motors",          price:  972.35, chg: -2.18 },
+  // ICICIBANK:  { name: "ICICI Bank",           price: 1234.60, chg:  0.82 },
+  // ADANIPORTS: { name: "Adani Ports",          price: 1387.40, chg: -1.04 },
+  // SUNPHARMA:  { name: "Sun Pharma",           price: 1847.20, chg:  0.63 },
 };
 
 /* ─── Formatters ─────────────────────────────────────────────────────────── */
@@ -491,7 +491,7 @@ export default function TradeRescue() {
                 </div>
 
                 {showSug && (
-                  <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, right: 0, zIndex: 200, background: C.surface3, border: `1px solid ${C.border2}`, borderRadius: 10, overflow: "hidden", boxShadow: `0 8px 32px ${C.bg}cc`, animation: "fadeInUp 0.18s ease" }}>
+                  <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, right: 0, zIndex: 500, background: C.surface3, border: `1px solid ${C.border2}`, borderRadius: 10, overflow: "hidden", boxShadow: `0 12px 40px rgba(0,0,0,0.8)`, animation: "fadeInUp 0.18s ease" }}>
                     {suggestions.map(([sym, info]: any) => (
                       <div key={sym} onClick={() => { setTickerInput(sym); fetchPrice(sym); }}
                         style={{ padding: "10px 12px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${C.border}`, transition: "background 0.12s" }}
@@ -867,7 +867,7 @@ export default function TradeRescue() {
 
           {/* Roadmap CTA — dimmed, secondary */}
           <a
-            href="https://tally.so/r/traderescue-feedback"
+            href="https://forms.gle/pa6qQVPL7NDBTbrQ9"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("roadmap_click", { source: "footer" })}
@@ -923,6 +923,8 @@ export default function TradeRescue() {
     </div>
   );
 }
+
+
 
 // 'use client';
 
